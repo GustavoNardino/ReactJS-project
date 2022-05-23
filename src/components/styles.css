@@ -1,0 +1,7 @@
+.container {
+    background-color: blueviolet;
+    max-width: 1200px;
+    height: 100px;
+    width: 100%;
+    display: flex;
+}
