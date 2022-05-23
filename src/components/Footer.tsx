@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Footer = () => {
+function Footer() {
+  //STATE COM INFOS DA COMPRA
   return (
-    <div className='container'>Footer</div>
+    <div className='footer'>Footer</div>
   )
 }
 

@@ -1,20 +1,21 @@
 import React from 'react';
-import Button from './components/Button';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Input from './components/Input';
-import Title from './components/Title';
-import './components/styles.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Checkout from './views/Checkout';
+import CheckoutConfirm from './views/CheckoutConfirm';
+import ProductPresentation from './views/ProductPresentation';
+import Success from './views/Success';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Header />
-      <Title />
-      <Input />
-      <Button />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/productpresentation' element={<ProductPresentation />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/checkoutconfirm' element={<CheckoutConfirm />} />
+        <Route path='/success' element={<Success />} />
+      </Routes>
+    </Router>
   );
 }
 

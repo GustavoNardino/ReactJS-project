@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Button = () => {
+type ButtonProps = {
+  text: string;
+}
+
+function Button(props: ButtonProps) {
+  //STATE PARA FUNÇÃO DO BOTAO
   return (
-    <div>Button</div>
+    <form>
+      <button className='btn' type='button'>{props.text}</button>
+    </form>
   )
 }
 

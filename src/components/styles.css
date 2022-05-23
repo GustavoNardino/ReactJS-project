@@ -1,7 +1,37 @@
 .container {
     background-color: blueviolet;
     max-width: 1200px;
-    height: 100px;
-    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.contentPanel, .header, .footer{
+    background-color: aquamarine;
+    width: 97%;
+    display: flex;
+    height: 100px;
+    border: 1px solid;
+    margin: 2px;
+}
+.contentPanel{
+    height: 400px;
+}
+.btn{
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    font-size: 1.05rem;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: brown;
+}
+.btn:hover{
+    opacity: 80%;
+}
+.product{
+    width: 100px;
+    height: 100px;
+    background-color: black;
 }

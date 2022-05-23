@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Input = () => {
+function Input() {
+  //STATE DO TEXT E FUNÇÃO 
   return (
-    <div>Input</div>
+    <form>
+      <input type="text" />
+    </form>
   )
 }
 
