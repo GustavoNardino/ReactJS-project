@@ -1,6 +1,6 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import ContentPanel from '../components/ContentPanel';
+import ProductPanel from '../components/ProductPanel';
 
 import React from 'react'
 
@@ -11,7 +11,7 @@ function ProductPresentation() {
     <div className='container'>
       <h2>productpresentation</h2>
         <Header />
-        <ContentPanel />
+        <ProductPanel />
         <Footer />
     </div>
   )

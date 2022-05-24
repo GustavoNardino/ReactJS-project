@@ -10,10 +10,12 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
+        <Route path='/' element={<ProductPresentation />} />
         <Route path='/productpresentation' element={<ProductPresentation />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/checkoutconfirm' element={<CheckoutConfirm />} />
         <Route path='/success' element={<Success />} />
+        <Route path='*' element={<ProductPresentation />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,6 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import ContentPanel from '../components/ContentPanel';
+import ContentPanel from '../components/ProductPanel';
 import '../components/styles.css'
 import React from 'react'
 
@@ -9,7 +9,7 @@ function Success() {
     <div className='container'>
       <h2>success</h2>
         <Header />
-        <ContentPanel />
+        {/* success msg */}
         <Footer />
     </div>
   )

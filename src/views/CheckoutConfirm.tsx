@@ -1,6 +1,6 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import ContentPanel from '../components/ContentPanel';
+import SalePanel from '../components/SalePanel';
 
 import React from 'react'
 
@@ -9,7 +9,7 @@ function CheckoutConfirm() {
     <div className='container'>
       <h2>CheckoutConfirm</h2>
         <Header />
-        <ContentPanel />
+        <SalePanel />
         <Footer />
     </div>
   )
