@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
 import saleClass from '../Data'
 import CostumerPanel from '../components/CostumerPanel';
 import ProductPanel from '../components/ProductPanel';
 
-function SalePanel() {
+type salePanelData = {
+  saleProductData:saleClass
+  saleCostumerData:saleClass
+}
+function SalePanel(props: salePanelData) {
   return (
     <div className='contentPanel'>
-        <ProductPanel />
-        <CostumerPanel />
+        <ProductPanel productPresData={props.saleProductData} />
+        <CostumerPanel checkoutData={props.saleCostumerData} />
     </div>
   )
 }

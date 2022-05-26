@@ -1,32 +1,26 @@
-import React, {useState} from 'react'
 import saleClass from '../Data'
-import Header from '../components/Header';
+import Input from './Input';
 
+type costumerPanelData = {
+  checkoutData: saleClass
+}
 
-function CostumerPanel() {
-  const costumer = new saleClass;
-  const [costumerForm, setCostumerForm] = useState(costumer)
-
-  function getFormData(formData:string | number){
-    
-  }
+function CostumerPanel(props:costumerPanelData) {
   return (
     <div className='contentPanel'>
       <form action="">
-        <input type="text" placeholder='Nome' />
-        <input type="text" placeholder='CPF' />
-        <input type="text" placeholder='Celular' />
-        <input type="text" placeholder='E-mail' />
-        <input type="text" placeholder='Endereço' />
-        <input type="text" placeholder='Cartão de crédito' />
-        <input type="text" placeholder='Validade' />
-        <input type="text" placeholder='CVV' />
-        <input type="text" placeholder='Nome do portador' />
-        <input type="text" placeholder='CPF do portador' />
-        <button onClick={() => getFormData(0)} className='btn'>Avançar</button>
+        <Input fieldName='Nome' content={props.checkoutData.costumerName} />
+        <Input fieldName='CPF' content={props.checkoutData.cpf} />
+        <Input fieldName='Telefone' content={props.checkoutData.phone} />
+        <Input fieldName='E-mail' content={props.checkoutData.email} />
+        <Input fieldName='Endereço' content={props.checkoutData.address} />
+        <Input fieldName='Cartão de Crédito' content={props.checkoutData.cardnNumber} />
+        <Input fieldName='Validade' content={props.checkoutData.validity} />
+        <Input fieldName='CVV' content={props.checkoutData.cvv} />
+        <Input fieldName='Nome do portador' content={props.checkoutData.cardName} />
+        <Input fieldName='CPF do portador' content={props.checkoutData.cardCpf} />
       </form>
     </div>
   )
 }
-
 export default CostumerPanel

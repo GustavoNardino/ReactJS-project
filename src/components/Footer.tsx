@@ -1,9 +1,14 @@
-import React from 'react'
+import saleClass from "../Data"
 
-function Footer() {
-  //STATE COM INFOS DA COMPRA
+type footerRuleData = {
+  footerData:saleClass
+}
+function Footer(props:footerRuleData) {
+  
   return (
-    <div className='footer'>Footer</div>
+    <div className='footer'>
+      <p>Produto selecionado: {props.footerData.productName} - Valor total: {props.footerData.price} - Nome do comprador: {props.footerData.costumerName}</p>
+    </div>
   )
 }
 

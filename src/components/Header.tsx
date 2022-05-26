@@ -1,25 +1,29 @@
-import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
-import Button from './Button'
-import './styles.css';
 import {useLocation} from 'react-router-dom'
-import CostumerPanel from '../components/CostumerPanel';
+import './styles.css';
+import Button from './Button'
+import saleClass from '../Data';
 
-
-function Header() {
+type headerControlData = {
+  headerData:saleClass
+  headerEvent: React.Dispatch<React.SetStateAction<saleClass>>
+}
+function Header(props:headerControlData) {
+  
+  const currentRoute:string = useLocation().pathname;
   let listPages: string[] = [
     "/productpresentation",
     "/checkout",
     "/checkoutconfirm",
     "/success"
   ]
-  const currentRoute:string = useLocation().pathname;
-
   function nextPage(){
     if (currentRoute === listPages[0]){
-      
       return listPages[1]
     }else if(currentRoute === listPages[1]){
+      //submit costumer form
+      //setSaleData
+      // props.headerEvent;
       return listPages[2]
     }else if (currentRoute === listPages[2]){
       return listPages[3]
@@ -39,13 +43,13 @@ function Header() {
     }
   }
   return (
-    <div className='header'>Header
+    <div className='header'>
       <Link to={prevPage()}>
-        <Button text='Anteior' />
-      </Link>
+        <Button event={props.headerEvent} text='Anteior' />
+        </Link>
       <Link to={nextPage()}>
-        <Button text='Próximo' />
-      </Link>
+        <Button event={props.headerEvent} text='Próximo' />
+        </Link>
     </div>   
   )
 }

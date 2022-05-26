@@ -1,0 +1,20 @@
+criar um componente form
+    ligá-lo ao header pra interagir com btn
+COMPONENTES
+    buttons para header
+        submit forms e muda rota
+    painel infos do produto
+        pega dados do data.tsx
+    form do cliente
+        coleta dados dos input e aplica 
+        no state junto com o btn da header
+    painel confirm
+        pega dados do data.tsx
+    msg sucesso
+        pega dados do data.tsx
+
+MELHORAR LÓGICA DE ROTAS COM BUTTON ON CLICK
+E SEM TANTOS IFS
+
+IMPORTAR DATA.TSX Nas views PRA CENTRALIZAR OS DADOS E PERMITIR A INTERAÇÃO HEADER-FORMS 
+VÍDEO DO VEDOVELLI 24:00
