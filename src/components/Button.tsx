@@ -1,13 +1,19 @@
 import saleClass from '../Data'
 type ButtonProps ={
   text: string;
-  event: React.Dispatch<React.SetStateAction<saleClass>>
-  
+  name:  string
 }
+
 function Button(props: ButtonProps) {
   return (
     <form>
-      <button onClick={() => props.event} className='btn' type='button'>{props.text}</button>
+      <button 
+        type="button" 
+        name={props.name} 
+        //</form>onClick={console.log} 
+        className='buttonComp'>
+        {props.text}
+      </button>
     </form>
   )
 }
