@@ -1,23 +1,21 @@
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import '../components/styles.css'
-import saleClass from '../Data';
 import ProgBar from '../components/ProgBar';
+import Header from '../components/Header';
+import SuccessPanel from '../components/SuccessPanel';
+import Footer from '../components/Footer';
+import saleClass from '../Data';
 
 type successViewData = {
   appData:saleClass
 }
+
 function Success(props: successViewData) {
   return (
     <div className='container'>
-      <h2>success</h2>
+      <h2>Compra finalizada</h2>
       <ProgBar />
-        <Header headerData={props.appData} />
-        <h1>PRONTO!</h1>
-        <p>{props.appData.costumerName}, sua compra de um 
-        {props.appData.productName} no valor de 
-        {props.appData.price}, foi realizada com sucesso</p>
-        <Footer footerData={props.appData} />
+      <Header headerData={props.appData} />
+      <SuccessPanel successPanelData={props.appData} />
+      <Footer footerData={props.appData} />
     </div>
   )
 }

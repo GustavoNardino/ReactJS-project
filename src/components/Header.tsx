@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
 import saleClass from '../Data';
+import nextImg from '../images/navImgs/rightImg.png'
+import prevtImg from '../images/navImgs/leftImg.png'
 
 type headerControlData = {
   headerData:saleClass
@@ -37,9 +39,9 @@ function Header(props:headerControlData) {
   }
   return (
     <div className='header'>
-      <Link className='navBtn' to={prevPage()}><img src="" alt="Voltar" />
+      <Link className='navBtn' to={prevPage()}><img src={prevtImg}/>
         </Link>
-      <Link className='navBtn' to={nextPage()}><img src="" alt="Avançar" />
+      <Link className='navBtn' to={nextPage()}><img src={nextImg}/>
         </Link>
     </div>   
   )

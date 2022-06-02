@@ -7,7 +7,7 @@ function SalePanel(props: salePanelData) {
   return (
     <div className='contentPanel'>
       <div className='galery'>
-      <img src={Image1} alt="produto" className='productImg' />
+      <img src={Image1} alt="produto" className='productImgSale' />
       </div>
       <div className='infoBoard'>
         <h4>{props.saleData.productName}</h4>
