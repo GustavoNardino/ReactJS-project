@@ -7,12 +7,11 @@ function SalePanel(props: salePanelData) {
   return (
     <div className='contentPanel'>
       <div className='galery'>
-      <img src={Image1} alt="produto" className='productImgSale' />
+        <img src={Image1} alt="produto" className='productImgSale' />
       </div>
       <div className='infoBoard'>
         <h4>{props.saleData.productName}</h4>
-        
-        <p>{props.saleData.price+props.saleData.frete}(valor com frete)</p>
+        <p>{parseFloat(props.saleData.price) + parseFloat(props.saleData.frete)}(valor com frete)</p>
       </div>
       <div className='infoBoard'>
         <ul>
@@ -22,7 +21,7 @@ function SalePanel(props: salePanelData) {
           <li>E-mail: {props.saleData.email}</li>
           <li>Endereço: {props.saleData.address}</li>
           <br />
-          <li>Número do cartão: {props.saleData.cardnNumber}</li>
+          <li>Número do cartão: {props.saleData.cardNumber}</li>
           <li>Validade {props.saleData.validity}</li>
           <li>CVV: {props.saleData.cvv}</li>
           <li>Nome do cartão: {props.saleData.cardName}</li>

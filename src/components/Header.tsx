@@ -15,6 +15,7 @@ function Header(props:headerControlData) {
     "/checkoutconfirm",
     "/success"
   ]
+ 
   function nextPage(){
     if (currentRoute === listPages[0]){
       return listPages[1]

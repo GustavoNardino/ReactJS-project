@@ -10,7 +10,7 @@ function SuccessPanel(props: successPanelData) {
             <h1>PRONTO!</h1>
             <p>{props.successPanelData.costumerName}, sua compra de um 
             {props.successPanelData.productName} no valor de 
-            {props.successPanelData.price}, foi realizada com sucesso</p>
+            {parseFloat(props.successPanelData.price) + parseFloat(props.successPanelData.frete)}, foi realizada com sucesso</p>
           </div>
         </div>
     )

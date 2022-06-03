@@ -4,7 +4,7 @@ import ProductPanel from '../components/ProductPanel';
 import Footer from '../components/Footer';
 import saleClass from '../Data';
 
-interface productPresType {
+type productPresType ={
   appData: saleClass
   prodPresEvent: React.Dispatch<React.SetStateAction<saleClass>>
 }

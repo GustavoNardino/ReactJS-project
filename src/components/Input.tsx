@@ -1,46 +1,48 @@
 import saleClass from "../Data";
 
 type InputProps = {
+  //name tem que ser igual ao props.name em questão para as functions validarem corretamente
+  eventChange: React.Dispatch<React.SetStateAction<saleClass>>
   inputData: saleClass
-  content: string;
+  content: string | number;
   fieldName: string;
   name: string
-  eventChange: React.Dispatch<React.SetStateAction<saleClass>>
+  //validações
+  //maxlength
+  //minlength
+  //size
+  //required
 }
+
+
+
+const cepTest = new RegExp("[0-9]{5}-[\d]{3}");
+let isValid:boolean = true
+
 function Input(props: InputProps) {
-  function handleChange(dataInput:string){
-    //iterar trocando por [props.name] assim o componente fica reutilizavel
-    if(props.name === 'cep'){
-      props.inputData.cep = dataInput;
-    }else if (props.name === 'costumerName'){
-      props.inputData.costumerName = dataInput;
-    }else if (props.name === 'cpf'){
-      props.inputData.cpf = dataInput;
-    }else if (props.name === 'phone'){
-      props.inputData.phone = dataInput;
-    }else if (props.name === 'email'){
-      props.inputData.email = dataInput;
-    }else if (props.name === 'address'){
-      props.inputData.address = dataInput;
-    }else if (props.name === 'cardnNumber'){
-      props.inputData.cardnNumber = dataInput;
-    }else if (props.name === 'validity'){
-      props.inputData.validity = dataInput;
-    }else if (props.name === 'cvv'){
-      props.inputData.cvv = dataInput;
-    }else if (props.name === 'cardName'){
-      props.inputData.cardName = dataInput;
-    }else if (props.name === 'cardCpf'){
-      props.inputData.cardCpf = dataInput;
-    }
-    props.eventChange(props.inputData)
+  function validate(stringTest:string){
+    
   }
-  return <input 
+  function handleChange(dataInput:string){
+    let key: keyof saleClass;
+    for (key in props.inputData){
+      if (key === props.name){
+        props.inputData[key] = dataInput;
+        if (cepTest.test(dataInput)){
+          isValid = true;
+        }else{
+          isValid = false;
+        }
+          
+      }
+    }
+      props.eventChange(props.inputData)
+  }
+  return <input   
     defaultValue={props.content} 
-    onChange={(e) => handleChange(e.target.value)} 
-    className="inputComp" 
+    onChange={(e) => handleChange(e.target.value)}
+    className='inputComp'
     name={props.name} 
-    type="text" 
     placeholder={props.fieldName} />
 }
 

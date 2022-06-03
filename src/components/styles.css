@@ -35,6 +35,10 @@
     justify-content: space-around;
     align-items: center;
 }
+.header{
+    background-color: #dfe1e4;
+    box-shadow: none;
+}
 .contentPanel{
     min-height: 400px;
 }
@@ -52,8 +56,15 @@
 .buttonComp:hover{
     opacity: 80%;
 }
-.inputComp{
+.inputComp, .inputSuccess, .inputError{
     margin: 3px;
+    
+}
+.inputSuccess{
+    border-color: green;
+}
+.inputError{
+    border-color: red;
 }
 .infoBoard, .galery, .successBoard{
     width: 90vw;
@@ -67,6 +78,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+.galery img:hover{
+    opacity: 70%;
+}
 .productImg{
     width: 32%;
     height: 22%;
@@ -78,12 +92,12 @@
     margin: auto;
 }
 .navBtn{
-    width: 50%;
+    width: 49.5%;
     height: 60px;;
     text-align: center;
     background-color: #84b8d5;
-    color: black;
     border-radius: 0.3rem;
+    box-shadow: 1px 1px #aaaaaa;
 }
 .navBtn:hover{
     opacity: 80%;
