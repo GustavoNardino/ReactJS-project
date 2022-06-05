@@ -1,5 +1,5 @@
-import saleClass from '../Data'
-import Image1 from '../images/productImgs/productImg1.png';
+import saleClass from '../../Data'
+import Image1 from '../../images/productImgs/productImg1.png';
 type salePanelData = {
   saleData:saleClass
 }

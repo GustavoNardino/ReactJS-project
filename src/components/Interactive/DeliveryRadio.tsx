@@ -1,5 +1,5 @@
 import React from 'react'
-import saleClass from '../Data'
+import saleClass from '../../Data'
 
 type DeliveryData = {
     deliveryData:saleClass
@@ -13,7 +13,7 @@ export default function DeliveryRadio(props:DeliveryData) {
         // alert(dataRadio)
         fakestate = dataRadio
         if(dataRadio === 'correios'){
-            props.deliveryData.frete = props.deliveryData.cep
+            props.deliveryData.frete = '10.0'
         }else{
             props.deliveryData.frete = '0.00'
         }

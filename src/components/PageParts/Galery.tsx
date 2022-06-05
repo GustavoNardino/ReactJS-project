@@ -1,29 +1,20 @@
-import Image1 from '../images/productImgs/productImg1.png';
-import Image2 from '../images/productImgs/productImg2.png';
-import Image3 from '../images/productImgs/productImg3.png';
-import Image4 from '../images/productImgs/productImg4.png';
-import Image5 from '../images/productImgs/productImg5.png';
-import Image6 from '../images/productImgs/productImg6.png';
-
-import Carousel from "flat-carousel"
+import Image1 from '../../images/productImgs/productImg1.png';
+import Image2 from '../../images/productImgs/productImg2.png';
+import Image3 from '../../images/productImgs/productImg3.png';
+import Image4 from '../../images/productImgs/productImg4.png';
+import Image5 from '../../images/productImgs/productImg5.png';
+import Image6 from '../../images/productImgs/productImg6.png';
 
 function Galery() {
     return(
         <div className='galery'>  
-        <Carousel
-          showThumbs=""
-          width="100%"
-          infiniteLoop
-          useKeyboardArrows
-          autoPlay>
-          <div><img src={Image1} /></div>
-          <div><img src={Image2} /></div>
-          <div><img src={Image3} /></div>
-          <div><img src={Image4} /></div>
-          <div><img src={Image5} /></div>
-          <div><img src={Image6} /></div>
-          ))
-        </Carousel>  
+            <img src={Image1} alt="produto" className='productImg' onClick={() =>alert(Image1)}/>
+            <img src={Image2} alt="produto" className='productImg' onClick={() =>alert(Image2)}/>
+            <img src={Image3} alt="produto" className='productImg' onClick={() =>alert(Image3)}/>
+            <br />
+            <img src={Image4} alt="produto" className='productImg' onClick={() =>alert(Image4)}/>
+            <img src={Image5} alt="produto" className='productImg' onClick={() =>alert(Image5)}/>
+            <img src={Image6} alt="produto" className='productImg' onClick={() =>alert(Image6)}/>
       </div>
     )
 }

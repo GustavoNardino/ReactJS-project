@@ -1,4 +1,4 @@
-import saleClass from "../Data"
+import saleClass from "../../Data"
 
 type footerRuleData = {
   footerData:saleClass

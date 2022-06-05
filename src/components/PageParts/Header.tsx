@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
-import saleClass from '../Data';
-import nextImg from '../images/navImgs/rightImg.png'
-import prevtImg from '../images/navImgs/leftImg.png'
+import saleClass from '../../Data';
+import nextImg from '../../images/navImgs/rightImg.png'
+import prevtImg from '../../images/navImgs/leftImg.png'
 
 type headerControlData = {
   headerData:saleClass
@@ -10,12 +10,11 @@ type headerControlData = {
 function Header(props:headerControlData) {
   const currentRoute:string = useLocation().pathname;
   let listPages: string[] = [
-    "/productpresentation",
+    "/product",
     "/checkout",
-    "/checkoutconfirm",
+    "/confirm",
     "/success"
   ]
- 
   function nextPage(){
     if (currentRoute === listPages[0]){
       return listPages[1]

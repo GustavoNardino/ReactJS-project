@@ -1,15 +1,16 @@
-import saleClass from '../Data'
-import Button from './Button';
-import Input from './Input';
-import Galery from './Galery'
-import DeliveryRadio from './DeliveryRadio';
+import saleClass from '../../Data'
+import Button from '../Interactive/Button';
+import Input from '../Interactive/Input';
+import Galery from '../PageParts/Galery'
+import DeliveryRadio from '../Interactive/DeliveryRadio';
+import {useState } from 'react';
 
 type productPanelData = {
   productPanelData: saleClass
   prodPanelEvent: React.Dispatch<React.SetStateAction<saleClass>>
 }
 function ProductPanel(props: productPanelData) {
-
+  const [freteCalc, setFreteCalc] = useState('')
   return (
     <div className='contentPanel'>
       <Galery />
@@ -18,7 +19,8 @@ function ProductPanel(props: productPanelData) {
         <p>{props.productPanelData.description}</p>
         <p>R$ {props.productPanelData.price}</p>
         <p>Frete: R$ {props.productPanelData.frete}</p>
-        <DeliveryRadio deliveryData={props.productPanelData} deliveryEvent={props.prodPanelEvent} />
+        {freteCalc!==''?
+        <DeliveryRadio deliveryData={props.productPanelData} deliveryEvent={props.prodPanelEvent} />:''}
         <div>
           <Input 
             inputData={props.productPanelData} 
@@ -28,7 +30,7 @@ function ProductPanel(props: productPanelData) {
             fieldName='CEP' />
             
           <Button buttonData={props.productPanelData} 
-            eventClick={props.prodPanelEvent} 
+            eventClick={setFreteCalc} 
             text='Calcular' 
             name='cepCalcBtn' />
         </div>

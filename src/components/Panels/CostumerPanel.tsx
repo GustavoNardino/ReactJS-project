@@ -1,5 +1,5 @@
-import saleClass from '../Data';
-import Input from './Input';
+import saleClass from '../../Data';
+import Input from '../Interactive/Input';
 
 type costumerPanelData = {
   checkoutData: saleClass

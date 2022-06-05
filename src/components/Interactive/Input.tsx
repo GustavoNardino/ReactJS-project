@@ -1,4 +1,4 @@
-import saleClass from "../Data";
+import saleClass from "../../Data";
 
 type InputProps = {
   //name tem que ser igual ao props.name em questão para as functions validarem corretamente
@@ -21,7 +21,7 @@ let isValid:boolean = true
 
 function Input(props: InputProps) {
   function validate(stringTest:string){
-    
+    return true
   }
   function handleChange(dataInput:string){
     let key: keyof saleClass;
@@ -40,7 +40,7 @@ function Input(props: InputProps) {
   }
   return <input   
     defaultValue={props.content} 
-    onChange={(e) => handleChange(e.target.value)}
+    onBlur={(e) => handleChange(e.target.value)}
     className='inputComp'
     name={props.name} 
     placeholder={props.fieldName} />
