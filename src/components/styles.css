@@ -4,6 +4,7 @@
     transition: 0.3s;
     list-style: none;
     color: #3a3b40;
+    
 }
 @media (max-width: 654px){
     .contentPanel{
@@ -103,6 +104,22 @@
     opacity: 80%;
 }
 .progBar{
-    height: 30px;
-    width: 97%;
+    
+    margin-left: 1.8%;
+    width: 96.4%;
+    align-self: flex-start;
+    display: flex;
+}
+.stageBar{
+    opacity: 50%;
+    width: 25%;
+    height: 20px;
+    cursor: default;
+    background-color: #3a403a;
+    text-align: center;
+    color: white;
+    border: 1px solid gray;
+}
+.stageBar:hover{
+    opacity: 60%;
 }

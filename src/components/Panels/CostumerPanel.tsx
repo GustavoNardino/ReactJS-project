@@ -7,7 +7,8 @@ type costumerPanelData = {
 }
 
 function CostumerPanel(props:costumerPanelData) {
-
+  //alimentar o costumerPanelEvent com uma lista/objeto contendo 
+  //as strings que a checkoutView vai enviar pra header por uma function
   return (
     <div className='contentPanel'>
       <div className='infoBoard'>
@@ -20,8 +21,15 @@ function CostumerPanel(props:costumerPanelData) {
         name="phone" fieldName='Telefone' content={props.checkoutData.phone} />
         <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
         name="email" fieldName='E-mail' content={props.checkoutData.email} />
+        <h3>Endereço</h3>
         <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="address" fieldName='Endereço' content={props.checkoutData.address} />
+        name="cep" fieldName='CEP' content={props.checkoutData.cep} />
+        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
+        name="street" fieldName='Rua' content={props.checkoutData.street} />
+        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
+        name="addrNumber" fieldName='Número' content={props.checkoutData.addrNumber} />
+        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
+        name="district" fieldName='Bairro' content={props.checkoutData.district} />
       </div>
        <div className='infoBoard'>
          <h3>Dados do pagamento</h3>

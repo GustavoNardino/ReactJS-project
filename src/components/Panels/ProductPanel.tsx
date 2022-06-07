@@ -10,7 +10,8 @@ type productPanelData = {
   prodPanelEvent: React.Dispatch<React.SetStateAction<saleClass>>
 }
 function ProductPanel(props: productPanelData) {
-  const [freteCalc, setFreteCalc] = useState('')
+  const [freteCalc, setFreteCalc] = useState(props.productPanelData.cep)
+  
   return (
     <div className='contentPanel'>
       <Galery />
@@ -18,9 +19,9 @@ function ProductPanel(props: productPanelData) {
         <h4>{props.productPanelData.productName}</h4>
         <p>{props.productPanelData.description}</p>
         <p>R$ {props.productPanelData.price}</p>
-        <p>Frete: R$ {props.productPanelData.frete}</p>
         {freteCalc!==''?
-        <DeliveryRadio deliveryData={props.productPanelData} deliveryEvent={props.prodPanelEvent} />:''}
+          <DeliveryRadio deliveryData={props.productPanelData} deliveryEvent={props.prodPanelEvent} />
+        :''}
         <div>
           <Input 
             inputData={props.productPanelData} 
@@ -28,7 +29,6 @@ function ProductPanel(props: productPanelData) {
             content={props.productPanelData.cep} 
             name='cep' 
             fieldName='CEP' />
-            
           <Button buttonData={props.productPanelData} 
             eventClick={setFreteCalc} 
             text='Calcular' 

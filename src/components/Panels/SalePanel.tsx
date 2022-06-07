@@ -11,7 +11,7 @@ function SalePanel(props: salePanelData) {
       </div>
       <div className='infoBoard'>
         <h4>{props.saleData.productName}</h4>
-        <p>{parseFloat(props.saleData.price) + parseFloat(props.saleData.frete)}(valor com frete)</p>
+        <p>R$ {parseFloat(props.saleData.price) + parseFloat(props.saleData.frete)}{props.saleData.frete!=='0.00'?<span>(valor com frete)</span>:'' }</p>
       </div>
       <div className='infoBoard'>
         <ul>
@@ -19,7 +19,7 @@ function SalePanel(props: salePanelData) {
           <li>CPF: {props.saleData.cpf}</li>
           <li>Telefone: {props.saleData.phone}</li>
           <li>E-mail: {props.saleData.email}</li>
-          <li>Endereço: {props.saleData.address}</li>
+          <li>Endereço: {props.saleData.street}, {props.saleData.addrNumber}, {props.saleData.district}</li>
           <br />
           <li>Número do cartão: {props.saleData.cardNumber}</li>
           <li>Validade {props.saleData.validity}</li>

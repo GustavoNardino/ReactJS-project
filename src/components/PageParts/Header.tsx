@@ -8,6 +8,7 @@ type headerControlData = {
   headerData:saleClass
 }
 function Header(props:headerControlData) {
+  //criar um state que permite a troca de página e o appSetState com base nas strings dos inputs
   const currentRoute:string = useLocation().pathname;
   let listPages: string[] = [
     "/product",

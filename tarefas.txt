@@ -1,12 +1,4 @@
-DESENHAR A BARRA DE PROGRESSO
 REVER A SALECLASS PARA ACEITAR NUMBER E STRING E SER ITERAVEL (como tipar nos props um let saleObject = {productname: string, ...} )
 VALIDAÇÃO OS CAMPOS (REGEX) E LIBERAR BOTÕES COM INPUTS PREENCHIDOS USAR UM STATE PRA VALIDAR COM OUTROS COMPS
-ABRIR UM CARD COM AS IMAGENS
-CALCULAR FRETE NO BOTÃO TROCAR BUTTON POR INPUT TYPE="BUTTON"
+CARROCEL NA GALERY
 OTIMIZAR O CÓDIGO
-
-
-criar um state para cada componente que precise renderizar dinamicamente:
-radios e cáluclo do frente no productPanel
-btn na header
-validações no input

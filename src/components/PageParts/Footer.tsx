@@ -7,7 +7,7 @@ function Footer(props:footerRuleData) {
   
   return (
     <div className='footer'>
-      <p>{props.footerData.costumerName} selecionou {props.footerData.productName} no valor de {props.footerData.price} + {props.footerData.frete}(frete)</p>
+      <p>Você selecionou {props.footerData.productName}</p>
     </div>
   )
 }

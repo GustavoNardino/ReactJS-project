@@ -1,20 +1,32 @@
 import {useLocation} from 'react-router-dom'
 
+let showBar:number = 0;
 
 function ProgBar () {
     const currentRoute:string = useLocation().pathname;
+    
     switch (currentRoute) {
       case "/product":
-        return <div className='progBar'>ETAPA 1</div>
+        showBar = 1
+        break
       case "/checkout":
-        return <div className='progBar'>ETAPA 1 - ETAPA 2</div>
+        showBar = 2
+        break
       case "/confirm":
-        return <div className='progBar'>ETAPA 1 - ETAPA 2 - ETAPA 3</div>
+        showBar = 3
+        break
       case "/success":
-        return <div className='progBar'>ETAPA 1 - ETAPA 2 - ETAPA 3 - ETAPA 4</div>
-      default:
-        return <div className='progBar'><img alt={currentRoute} /></div>
+        showBar = 4
+        break
     }
+    return (
+      <div className='progBar'>
+        {showBar===1 || showBar===2 || showBar===3 || showBar===4? <div className='stageBar'></div>:''}
+        {showBar===2 || showBar===3 || showBar===4?<div className='stageBar'></div>: ''}
+        {showBar===3 || showBar===4? <div className='stageBar'></div>: ''}
+        {showBar===4? <div className='stageBar'></div>:''}
+      </div>
+    )
     
 }
 

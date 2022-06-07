@@ -1,4 +1,5 @@
 import saleClass from '../../Data'
+import {useState} from 'react'
 type ButtonProps ={
   text: string;
   name:  string
@@ -8,9 +9,9 @@ type ButtonProps ={
 
 function Button(props: ButtonProps) {
   function handleClick(){ 
-    //abre o radio. setFlowState showRadio = true
-    // props.buttonData.frete = props.buttonData.cep
-    props.eventClick('10.0')
+    
+    props.buttonData.frete = '10.0'
+    props.eventClick(props.buttonData.frete)
     // props.eventClick(props.buttonData)
   }
   return (

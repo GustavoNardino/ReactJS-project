@@ -13,7 +13,7 @@ type confirmType = {
 function CheckoutConfirmView(props:confirmType) {
   return (
     <div className='container'>
-      <h2>Confirme suas informações</h2>
+      <h2>Confirme as informações</h2>
       <ProgBar />
       <Header headerData={props.saleState} />
       <SalePanel saleData={props.saleState}/>

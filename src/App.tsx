@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import {useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import saleClass from './Data';
 import CheckoutView from './views/CheckoutView';
@@ -11,19 +11,21 @@ const initialData = new saleClass();
 
 function App() {  
   const [saleData, setSaleData] = useState(initialData)
-
+  function refreshState (majorData: saleClass){
+    setSaleData(majorData)
+  }
   return (
     <Router>
       <Routes>
         <Route path='/product'
                 element={<ProductPresentationView 
                 saleState={saleData} 
-                prodPresEvent={setSaleData}
+                prodPresEvent={() => refreshState}
                 />} /> 
         <Route path='/checkout' 
                 element={<CheckoutView 
                 saleState={saleData} 
-                checkoutEvent={setSaleData} 
+                checkoutEvent={() => refreshState} 
                 
                 />} />
         <Route path='/confirm' 

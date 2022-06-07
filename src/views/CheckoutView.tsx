@@ -12,9 +12,10 @@ type checkoutType = {
 }
 
 function CheckoutView(props:checkoutType) {
+  //criar uma function pra passar os dados da costumer panel para header
   return (
     <div className='container'>
-      <h2>Suas informações</h2>
+      <h2>Informe seus dados</h2>
       <ProgBar />
       <Header headerData={props.saleState} />
       <CostumerPanel checkoutData={props.saleState} costumerPanelEvent={props.checkoutEvent}/>
