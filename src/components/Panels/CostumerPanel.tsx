@@ -1,50 +1,68 @@
-import saleClass from '../../Data';
+import {useState} from 'react'
+import {CostumerClass, ProductClass} from '../../Data'
+import Button from '../Interactive/Button';
 import Input from '../Interactive/Input';
+import Image1 from '../../images/productImgs/productImg1.png'
+
 
 type costumerPanelData = {
-  checkoutData: saleClass
-  costumerPanelEvent: React.Dispatch<React.SetStateAction<saleClass>>
+  costumerEvent: React.Dispatch<React.SetStateAction<CostumerClass>>
+  costumerData: CostumerClass
+  productData: ProductClass
 }
 
 function CostumerPanel(props:costumerPanelData) {
-  //alimentar o costumerPanelEvent com uma lista/objeto contendo 
-  //as strings que a checkoutView vai enviar pra header por uma function
+  const [allowBtn, setAllowBtn] = useState(true)
+  function handleFields (e: CostumerClass) {
+    // faz o for e  libera btn
+    let key: keyof CostumerClass;
+    for (key in e){
+      if (key){
+        // alert('Preencha todos os campos')
+      }else{
+        setAllowBtn(false)
+      }
+    }
+    props.costumerEvent(e)
+
+    
+  };
+
   return (
     <div className='contentPanel'>
+      <div className='galery'>
+        <img src={Image1} alt="produto" className='productImgSale' />
+      </div>
+      <div className='infoBoard'>
+        <h4>{props.productData.productName}</h4>
+        <p>R$ {props.productData.price + parseFloat(props.costumerData.shipping)}</p>      
+      </div>
       <div className='infoBoard'>
         <h3>Dados pessoais</h3>
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="costumerName" fieldName='Nome completo' content={props.checkoutData.costumerName} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="cpf" fieldName='CPF' content={props.checkoutData.cpf} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="phone" fieldName='Telefone' content={props.checkoutData.phone} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="email" fieldName='E-mail' content={props.checkoutData.email} />
+        <Input fieldName='Nome Completo' content={props.costumerData.name} name='name' costumerData={props.costumerData} costumerEvent={handleFields} />
+        <Input fieldName='Telefone' content={props.costumerData.phone} name='phone'  costumerData={props.costumerData}  costumerEvent={handleFields} />
+        <Input fieldName='E-mail' content={props.costumerData.email} name='email'  costumerData={props.costumerData}  costumerEvent={handleFields} />
+        <Input fieldName='CPF' content={props.costumerData.cpf} name='cpf' costumerData={props.costumerData}  costumerEvent={handleFields} />    
         <h3>Endereço</h3>
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="cep" fieldName='CEP' content={props.checkoutData.cep} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="street" fieldName='Rua' content={props.checkoutData.street} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="addrNumber" fieldName='Número' content={props.checkoutData.addrNumber} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="district" fieldName='Bairro' content={props.checkoutData.district} />
+        <Input fieldName='CEP' disabled={true} content={props.costumerData.cep} name='cep'  costumerData={props.costumerData}  costumerEvent={handleFields} />
+        <Input fieldName='Nome da rua' disabled={true} content={props.costumerData.street} name='street'  costumerData={props.costumerData}  costumerEvent={handleFields} />
+        <Input fieldName='Número' content={props.costumerData.addrNumber} name='addrNumber'  costumerData={props.costumerData}  costumerEvent={handleFields} />
+        <Input fieldName='Bairro' disabled={true} content={props.costumerData.district} name='district'  costumerData={props.costumerData}  costumerEvent={handleFields} />
+        <Input fieldName='Cidade' disabled={true} content={props.costumerData.city} name='city'  costumerData={props.costumerData}  costumerEvent={handleFields} />
       </div>
-       <div className='infoBoard'>
-         <h3>Dados do pagamento</h3>
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="cardNumber" fieldName='Cartão de Crédito' content={props.checkoutData.cardNumber} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="validity" fieldName='Validade' content={props.checkoutData.validity} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="cvv" fieldName='CVV' content={props.checkoutData.cvv} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="cardName" fieldName='Nome do portador' content={props.checkoutData.cardName} />
-        <Input  inputData={props.checkoutData} eventChange={props.costumerPanelEvent} 
-        name="cardCpf" fieldName='CPF do portador' content={props.checkoutData.cardCpf} />
+      <div className='infoBoard'>
+        <h3>Dados do pagamento</h3>
+        <Input fieldName='Número do cartão' content={props.costumerData.cardNumber} name='cardNumber' costumerData={props.costumerData} costumerEvent={handleFields} />
+        <Input fieldName='Validade' content={props.costumerData.validity} name='validity' costumerData={props.costumerData} costumerEvent={handleFields} />
+        <Input fieldName='CVV' content={props.costumerData.cvv} name='cvv' costumerData={props.costumerData} costumerEvent={handleFields} />
+        <Input fieldName='Nome impresso no cartão' content={props.costumerData.cardName} name='cardName' costumerData={props.costumerData} costumerEvent={handleFields} />
+        <Input fieldName='CPF do portador' content={props.costumerData.cardCpf} name='cardCpf' costumerData={props.costumerData} costumerEvent={handleFields} />
+        <Button text='Continuar' name='continuar' disabled={false} />
       </div>
-    </div>
-  )
-}
+      </div>
+      
+    
+    
+    )
+  }
 export default CostumerPanel

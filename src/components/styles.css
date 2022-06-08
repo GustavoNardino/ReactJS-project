@@ -36,12 +36,12 @@
     justify-content: space-around;
     align-items: center;
 }
+.contentPanel{
+    min-height: 400px;
+}
 .header{
     background-color: #dfe1e4;
     box-shadow: none;
-}
-.contentPanel{
-    min-height: 400px;
 }
 .buttonComp{
     cursor: pointer;
@@ -57,41 +57,58 @@
 .buttonComp:hover{
     opacity: 80%;
 }
-.inputComp, .inputSuccess, .inputError{
+.inputComp{
     margin: 3px;
-    
 }
-.inputSuccess{
-    border-color: green;
-}
-.inputError{
-    border-color: red;
-}
-.infoBoard, .galery, .successBoard{
-    width: 90vw;
+.infoBoard, .successBoard{
+    /* width: 90vw; */
+    width: 80%;
     height: 100%;
-    margin: 3px;
+    margin: 0.3rem;
+    flex-wrap: wrap;
+
 }
 .successBoard{
     text-align: center;
 }
+/* ---------------IMGS---------------- */
 .galery{
+    display: flex;
+    /* background-color: green; */
+    height: 30%;
+}
+.costumeGalery{
     display: flex;
     flex-wrap: wrap;
 }
-.galery img:hover{
-    opacity: 70%;
+.carouselImgs{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: flex-end;
+    
 }
 .productImg{
-    width: 32%;
-    height: 22%;
-    margin: auto;
+    /* background-color: yellow; */
+    width: 60%;
+    height: 20%;
+    /* margin: auto; */
+}
+.productImg:hover{
+    opacity: 70%;
 }
 .productImgSale{
-    width: 90%;
-    height: 80%;
+    background-color: purple;
+    width: 60%;
+    height: 90%;
     margin: auto;
 }
+.successImg{
+    width: 25%;
+    height: 25%;
+}
+/* ---------------------------------------- */
 .navBtn{
     width: 49.5%;
     height: 60px;;
@@ -103,6 +120,7 @@
 .navBtn:hover{
     opacity: 80%;
 }
+
 .progBar{
     
     margin-left: 1.8%;

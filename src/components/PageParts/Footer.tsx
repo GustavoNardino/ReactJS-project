@@ -1,13 +1,13 @@
-import saleClass from "../../Data"
+import { ProductClass } from "../../Data"
 
 type footerRuleData = {
-  footerData:saleClass
+  productData: ProductClass
 }
 function Footer(props:footerRuleData) {
   
   return (
     <div className='footer'>
-      <p>Você selecionou {props.footerData.productName}</p>
+      <p>{props.productData.productName}</p>
     </div>
   )
 }

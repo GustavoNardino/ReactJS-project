@@ -1,40 +1,58 @@
-import saleClass from '../../Data'
+import { useState, ChangeEvent } from 'react';
+import {CostumerClass, ProductClass} from '../../Data'
+import Galery from '../PageParts/Galery'
 import Button from '../Interactive/Button';
 import Input from '../Interactive/Input';
-import Galery from '../PageParts/Galery'
 import DeliveryRadio from '../Interactive/DeliveryRadio';
-import {useState } from 'react';
 
 type productPanelData = {
-  productPanelData: saleClass
-  prodPanelEvent: React.Dispatch<React.SetStateAction<saleClass>>
+  costumerEvent: React.Dispatch<React.SetStateAction<CostumerClass>>
+  costumerData: CostumerClass
+  productData: ProductClass
 }
+
 function ProductPanel(props: productPanelData) {
-  const [freteCalc, setFreteCalc] = useState(props.productPanelData.cep)
+  const [shippingCalc, setShippingCalc] = useState(false)
+
+  function handleCep (e: CostumerClass) {
+    props.costumerData.cep = e.cep
+    props.costumerEvent(props.costumerData)
+    props.costumerData.street='Antonio Ader'
+    props.costumerData.district='Fanny'
+    props.costumerData.city='Curitiba/PR'
+    setShippingCalc(true)
+  };
+  const handleShipping = (e: CostumerClass) => {
+    props.costumerData.shipping = e.shipping
+    props.costumerEvent(props.costumerData)
+    
+  };
   
   return (
     <div className='contentPanel'>
       <Galery />
-      <div className='infoBoard'>
-        <h4>{props.productPanelData.productName}</h4>
-        <p>{props.productPanelData.description}</p>
-        <p>R$ {props.productPanelData.price}</p>
-        {freteCalc!==''?
-          <DeliveryRadio deliveryData={props.productPanelData} deliveryEvent={props.prodPanelEvent} />
-        :''}
-        <div>
-          <Input 
-            inputData={props.productPanelData} 
-            eventChange={props.prodPanelEvent} 
-            content={props.productPanelData.cep} 
-            name='cep' 
-            fieldName='CEP' />
-          <Button buttonData={props.productPanelData} 
-            eventClick={setFreteCalc} 
-            text='Calcular' 
-            name='cepCalcBtn' />
-        </div>
+    <div className='infoBoard'>
+      <h4>{props.productData.productName}</h4>
+      <p>{props.productData.description}</p>
+      <p>R$ {props.productData.price}</p>
+      {shippingCalc?
+        <>
+          <DeliveryRadio costumerData={props.costumerData} productData={props.productData} costumerEvent={handleShipping} />
+          <p>{props.costumerData.street}, {props.costumerData.district} - {props.costumerData.city}</p>
+        </>
+      :''}
+      <div>
+        <Input 
+          fieldName='CEP'
+          content={props.costumerData.cep}
+          name='cep'
+          costumerData={props.costumerData} 
+          costumerEvent={handleCep} />
+        {/* button Comprar faz a validação do cep, prodpanelevent e Link */}
+        {/* <button className='buttonComp'>Calcular frete</button> */}
       </div>
+        <Button text='Comprar' name='comprar' disabled={!shippingCalc} />
+    </div>
     </div>
   )
 }

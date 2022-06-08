@@ -1,7 +1,9 @@
-import saleClass from '../../Data'
+import {CostumerClass, ProductClass} from '../../Data'
 import Image1 from '../../images/productImgs/productImg1.png';
+import Button from '../Interactive/Button';
 type salePanelData = {
-  saleData:saleClass
+  costumerData: CostumerClass
+  productData: ProductClass
 }
 function SalePanel(props: salePanelData) {
   return (
@@ -10,24 +12,26 @@ function SalePanel(props: salePanelData) {
         <img src={Image1} alt="produto" className='productImgSale' />
       </div>
       <div className='infoBoard'>
-        <h4>{props.saleData.productName}</h4>
-        <p>R$ {parseFloat(props.saleData.price) + parseFloat(props.saleData.frete)}{props.saleData.frete!=='0.00'?<span>(valor com frete)</span>:'' }</p>
+        <h4>{props.productData.productName}</h4>
+        <p>R$ {props.productData.price + props.costumerData.shipping}{props.costumerData.shipping!=='0.0'?<span>(valor com frete)</span>:'' }</p>
       </div>
       <div className='infoBoard'>
         <ul>
-          <li>Nome: {props.saleData.costumerName}</li>
-          <li>CPF: {props.saleData.cpf}</li>
-          <li>Telefone: {props.saleData.phone}</li>
-          <li>E-mail: {props.saleData.email}</li>
-          <li>Endereço: {props.saleData.street}, {props.saleData.addrNumber}, {props.saleData.district}</li>
+          <li>Nome: {props.costumerData.name}</li>
+          <li>CPF: {props.costumerData.cpf}</li>
+          <li>Telefone: {props.costumerData.phone}</li>
+          <li>E-mail: {props.costumerData.email}</li>
+          <li>Endereço: {props.costumerData.street}, {props.costumerData.addrNumber}, {props.costumerData.district} - {props.costumerData.city}</li>
           <br />
-          <li>Número do cartão: {props.saleData.cardNumber}</li>
-          <li>Validade {props.saleData.validity}</li>
-          <li>CVV: {props.saleData.cvv}</li>
-          <li>Nome do cartão: {props.saleData.cardName}</li>
-          <li>CPF do portador: {props.saleData.cardCpf}</li>
+          <li>Número do cartão: {props.costumerData.cardNumber}</li>
+          <li>Validade {props.costumerData.validity}</li>
+          <li>CVV: {props.costumerData.cvv}</li>
+          <li>Nome do cartão: XXXX.XXXX.XXXX.{props.costumerData.cardName}</li>
+          <li>CPF do portador: {props.costumerData.cardCpf}</li>
         </ul>
+        <Button text='Finalizar' name='finalizar' disabled={false} />
         </div>
+        
     </div>
   )
 }

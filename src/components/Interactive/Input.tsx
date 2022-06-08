@@ -1,34 +1,34 @@
-import saleClass from "../../Data";
-
+import {CostumerClass, ProductClass} from '../../Data'
 type InputProps = {
-  //name tem que ser igual ao props.name em questão para as functions validarem corretamente
-  // eventChange: React.Dispatch<React.SetStateAction<string>>
-  eventChange: React.Dispatch<React.SetStateAction<saleClass>>
-  inputData: saleClass
-  content: string | number;
+  // costumerEvent: (e: string) => void
+  costumerEvent: (e:CostumerClass) => void
+  costumerData: CostumerClass
+  content: string|number;
   fieldName: string;
   name: string
-  //validações:
-    //maxlength
-    //minlength
-    //size
-    //required
+  disabled?: boolean
 }
 
-function Input(props: InputProps) {
-  function handleChange(dataInput:string){
-    let key: keyof saleClass;
-    for (key in props.inputData){
+function Input(props: InputProps) {  
+  function handleValidade(){
+    let valPass:boolean = true;
+    return valPass
+  }
+  function handleReturnInputData(f:string){
+    let key: keyof CostumerClass;
+    for (key in props.costumerData){
       if (key === props.name){
-        props.inputData[key] = dataInput;
-        props.eventChange(props.inputData)
-        // props.eventChange(dataInput)
+        props.costumerData[key] = f;
+        props.costumerEvent(props.costumerData)
+        // handleValidade()? props.costumerEvent() : alert('digite corretamente')
       }
     }  
   }
   return <input   
+    disabled={props.disabled}
     defaultValue={props.content} 
-    onBlur={(e) => handleChange(e.target.value)}
+    onBlur={(f) => handleReturnInputData(f.target.value)}
+    onChange={handleValidade}
     className='inputComp'
     name={props.name} 
     placeholder={props.fieldName} />

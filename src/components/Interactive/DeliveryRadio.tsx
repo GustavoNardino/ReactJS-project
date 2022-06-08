@@ -1,22 +1,23 @@
 import React, {useState} from 'react'
-import saleClass from '../../Data'
+import { ProductClass, CostumerClass } from '../../Data'
 
 type DeliveryData = {
-    deliveryData:saleClass
-    deliveryEvent:React.Dispatch<React.SetStateAction<saleClass>>
+    costumerData: CostumerClass
+    costumerEvent: (e: CostumerClass) => void
+    productData: ProductClass
 }
 
 let isChecked:string = 'correios'
+
 export default function DeliveryRadio(props:DeliveryData) {
   const [radioCheck, setRadioCheck] = useState(isChecked)
-  // const [showRadio, setShowRadio] = useState(false)
     function handleChange(dataRadio:string){
         if(dataRadio === 'correios'){
-            props.deliveryData.frete = '10.0'
-            props.deliveryEvent(props.deliveryData);
+            props.costumerData.shipping = '10.0'
+            props.costumerEvent(props.costumerData);
         }else{
-            props.deliveryData.frete = '0.00'
-            props.deliveryEvent(props.deliveryData);
+          props.costumerData.shipping = '0.0'
+          props.costumerEvent(props.costumerData);
         }
         isChecked=dataRadio
         setRadioCheck(dataRadio)
@@ -24,7 +25,7 @@ export default function DeliveryRadio(props:DeliveryData) {
     }
     return (
       <>
-        <p>Frete: R$ {props.deliveryData.frete}</p>
+        <p>Frete: R$ {isChecked==='correios'? '10.0':'0.0'}</p>
         <legend>Opções de entrega:</legend>
         <input id='correios'
           name='correios'

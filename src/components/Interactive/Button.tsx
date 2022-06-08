@@ -1,24 +1,46 @@
-import saleClass from '../../Data'
-import {useState} from 'react'
+import {useLocation, useNavigate} from 'react-router-dom'
 type ButtonProps ={
   text: string;
   name:  string
-  buttonData: saleClass
-  eventClick: React.Dispatch<React.SetStateAction<string>>
+  disabled:boolean
+  saleEvent?: () => void
 }
 
 function Button(props: ButtonProps) {
-  function handleClick(){ 
-    
-    props.buttonData.frete = '10.0'
-    props.eventClick(props.buttonData.frete)
-    // props.eventClick(props.buttonData)
-  }
+  let currentView:string = useLocation().pathname;
+  let listPages: string[] = [
+    "/product",
+    "/checkout",
+    "/confirm",
+    "/success"
+  ]
+  let navigate = useNavigate();
+  const nextPage = () => {
+    switch (currentView) {
+      case listPages[0]:
+        navigate(listPages[1])
+        break
+      case listPages[1]:
+        navigate(listPages[2])
+        break
+      case listPages[2]:
+        navigate(listPages[3])
+        break
+      case listPages[3]:
+        navigate(listPages[0])
+        window.location.reload()
+        break
+      default:
+          return '#'
+    }
+  };
+  
   return (
       <button 
+        disabled={props.disabled}
         type="button" 
         name={props.name} 
-        onClick={() => handleClick()} 
+        onClick={nextPage} 
         className='buttonComp'>
         {props.text}
       </button>
