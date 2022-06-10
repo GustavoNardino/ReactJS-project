@@ -1,19 +1,20 @@
 export class CostumerClass{
 	name!: string;
-	phone!: string;
+	phone!: number;
 	email!: string;
-	cpf!: string;
-	cep!: string;
+	cpf!: number;
+	cep!: number;
 	street!: string;
-	addrNumber!: string;
+	addrNumber!: number;
 	district!: string;
 	city!: string;
-	cardNumber!: string;
-	validity!: string;
-	cvv!: string;
+	cardNumber!: number;
+	validity!: number;
+	cvv!: number;
 	cardName!: string;
-	cardCpf!: string;
-	shipping!: string;
+	cardCpf!: number;
+	shipping!: number;
+
 }
 export class ProductClass{
 	productName!: string;

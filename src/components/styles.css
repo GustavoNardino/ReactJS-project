@@ -56,9 +56,12 @@
 }
 .buttonComp:hover{
     opacity: 80%;
-}
+}   
 .inputComp{
     margin: 3px;
+}
+.inputError{
+    border-color: red;
 }
 .infoBoard, .successBoard{
     /* width: 90vw; */

@@ -24,7 +24,6 @@ function App() {
   const [costumerState, setCostumerState] = useState(new CostumerClass())
   const [sales, setSale] = useState(initialStore)
   sales.id = Math.floor(Math.random() * 100);
-  
   function handleSetSale(){
     let newId = Math.floor(Math.random() * 100);
     setSale({...sales, id : sales.id, costumerData: costumerState, productData: product})

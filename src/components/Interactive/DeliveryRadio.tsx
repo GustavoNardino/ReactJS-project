@@ -13,10 +13,10 @@ export default function DeliveryRadio(props:DeliveryData) {
   const [radioCheck, setRadioCheck] = useState(isChecked)
     function handleChange(dataRadio:string){
         if(dataRadio === 'correios'){
-            props.costumerData.shipping = '10.0'
+            props.costumerData.shipping = 10.0
             props.costumerEvent(props.costumerData);
         }else{
-          props.costumerData.shipping = '0.0'
+          props.costumerData.shipping = 0.0
           props.costumerEvent(props.costumerData);
         }
         isChecked=dataRadio

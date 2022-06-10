@@ -10,16 +10,18 @@ type productPanelData = {
   costumerData: CostumerClass
   productData: ProductClass
 }
-
+let btnText:string = 'Calcular'
 function ProductPanel(props: productPanelData) {
   const [shippingCalc, setShippingCalc] = useState(false)
 
   function handleCep (e: CostumerClass) {
     props.costumerData.cep = e.cep
     props.costumerEvent(props.costumerData)
+    //trocar pela chamada da API
     props.costumerData.street='Antonio Ader'
     props.costumerData.district='Fanny'
     props.costumerData.city='Curitiba/PR'
+    btnText = 'Comprar'
     setShippingCalc(true)
   };
   const handleShipping = (e: CostumerClass) => {
@@ -48,10 +50,8 @@ function ProductPanel(props: productPanelData) {
           name='cep'
           costumerData={props.costumerData} 
           costumerEvent={handleCep} />
-        {/* button Comprar faz a validação do cep, prodpanelevent e Link */}
-        {/* <button className='buttonComp'>Calcular frete</button> */}
       </div>
-        <Button text='Comprar' name='comprar' disabled={!shippingCalc} />
+        <Button text={btnText} name='comprar' disabled={!shippingCalc} />
     </div>
     </div>
   )

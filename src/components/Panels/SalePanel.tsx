@@ -13,7 +13,7 @@ function SalePanel(props: salePanelData) {
       </div>
       <div className='infoBoard'>
         <h4>{props.productData.productName}</h4>
-        <p>R$ {props.productData.price + props.costumerData.shipping}{props.costumerData.shipping!=='0.0'?<span>(valor com frete)</span>:'' }</p>
+        <p>R$ {props.productData.price + props.costumerData.shipping}{props.costumerData.shipping!==0?<span>(valor com frete)</span>:'' }</p>
       </div>
       <div className='infoBoard'>
         <ul>
@@ -23,10 +23,10 @@ function SalePanel(props: salePanelData) {
           <li>E-mail: {props.costumerData.email}</li>
           <li>Endereço: {props.costumerData.street}, {props.costumerData.addrNumber}, {props.costumerData.district} - {props.costumerData.city}</li>
           <br />
-          <li>Número do cartão: {props.costumerData.cardNumber}</li>
+          <li>Número do cartão: xxxx.xxxx.xxxx.{props.costumerData.cardNumber.toString().substring(props.costumerData.cardNumber.toString().length - 4)}</li>
           <li>Validade {props.costumerData.validity}</li>
           <li>CVV: {props.costumerData.cvv}</li>
-          <li>Nome do cartão: XXXX.XXXX.XXXX.{props.costumerData.cardName}</li>
+          <li>Nome do cartão: {props.costumerData.cardName} </li>
           <li>CPF do portador: {props.costumerData.cardCpf}</li>
         </ul>
         <Button text='Finalizar' name='finalizar' disabled={false} />

@@ -4,6 +4,7 @@ type ButtonProps ={
   name:  string
   disabled:boolean
   saleEvent?: () => void
+  validateEvent?: () => void
 }
 
 function Button(props: ButtonProps) {
@@ -16,11 +17,13 @@ function Button(props: ButtonProps) {
   ]
   let navigate = useNavigate();
   const nextPage = () => {
+
     switch (currentView) {
       case listPages[0]:
         navigate(listPages[1])
         break
       case listPages[1]:
+        props.validateEvent
         navigate(listPages[2])
         break
       case listPages[2]:
@@ -28,6 +31,7 @@ function Button(props: ButtonProps) {
         break
       case listPages[3]:
         navigate(listPages[0])
+        
         window.location.reload()
         break
       default:
