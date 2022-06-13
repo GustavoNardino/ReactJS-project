@@ -23,7 +23,7 @@ function Button(props: ButtonProps) {
         navigate(listPages[1])
         break
       case listPages[1]:
-        props.validateEvent
+        // props.validateEvent 
         navigate(listPages[2])
         break
       case listPages[2]:
@@ -31,7 +31,6 @@ function Button(props: ButtonProps) {
         break
       case listPages[3]:
         navigate(listPages[0])
-        
         window.location.reload()
         break
       default:

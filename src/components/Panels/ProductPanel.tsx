@@ -13,7 +13,6 @@ type productPanelData = {
 let btnText:string = 'Calcular'
 function ProductPanel(props: productPanelData) {
   const [shippingCalc, setShippingCalc] = useState(false)
-
   function handleCep (e: CostumerClass) {
     props.costumerData.cep = e.cep
     props.costumerEvent(props.costumerData)
@@ -45,7 +44,7 @@ function ProductPanel(props: productPanelData) {
       :''}
       <div>
         <Input 
-          fieldName='CEP'
+          fieldName='CEP (só os números)'
           content={props.costumerData.cep}
           name='cep'
           costumerData={props.costumerData} 
