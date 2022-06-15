@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { ProductClass, CostumerClass } from '../../Data'
 
 type DeliveryData = {
@@ -8,7 +8,9 @@ type DeliveryData = {
 }
 
 let isChecked:string = 'correios'
-export default function DeliveryRadio(props:DeliveryData) {
+function DeliveryRadio(props:DeliveryData) {
+  props.costumerData.shipping = 10.0
+  props.costumerEvent(props.costumerData);
   const [radioCheck, setRadioCheck] = useState(isChecked)
     function handleChange(dataRadio:string){
         if(dataRadio === 'correios'){
@@ -30,6 +32,7 @@ export default function DeliveryRadio(props:DeliveryData) {
           name='correios'
           type='radio'
           value='correios'
+          
           onChange={(e) => handleChange(e.target.value)}
           checked={radioCheck === 'correios'}
           defaultChecked={true}
@@ -48,3 +51,5 @@ export default function DeliveryRadio(props:DeliveryData) {
       
   )
 }
+
+export default DeliveryRadio

@@ -12,6 +12,9 @@
         flex-direction: column-reverse;
     }
 }
+h4{
+    text-decoration: underline;
+}
 .container {
     box-shadow: 1px 1px #aaaaaa;
     background-color: #dfe1e4;
@@ -23,9 +26,7 @@
     margin: auto;
     border-radius: 0.3rem;
 }
-.container h2{
-    text-decoration: underline;
-}
+
 .contentPanel, .header, .footer{
     box-shadow: 1px 1px #aaaaaa;
     border-radius: 0.3rem;
@@ -57,59 +58,62 @@
 .buttonComp:hover{
     opacity: 80%;
 }   
-.inputComp{
+input{
+    border-radius: 0.5rem;
     margin: 3px;
+    border: 0.2px transparent #3a3b40;
+    height: 1.3rem;
+}
+.inputComp{
+    background-color: white;
 }
 .inputError{
-    border-color: red;
+    background-color: #ffb8b8;
 }
-.infoBoard, .successBoard{
-    /* width: 90vw; */
-    width: 80%;
+.infoBoard, .successBoard, .payBoard{
+    width: 70%;
     height: 100%;
     margin: 0.3rem;
-    flex-wrap: wrap;
-
+    justify-content: center;
 }
+
 .successBoard{
     text-align: center;
 }
 /* ---------------IMGS---------------- */
 .galery{
     display: flex;
-    /* background-color: green; */
     height: 30%;
 }
-.costumeGalery{
-    display: flex;
-    flex-wrap: wrap;
-}
 .carouselImgs{
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     width: 20%;
     align-items: flex-end;
-    
 }
 .productImg{
-    /* background-color: yellow; */
     width: 60%;
     height: 20%;
-    /* margin: auto; */
 }
 .productImg:hover{
     opacity: 70%;
 }
 .productImgSale{
-    background-color: purple;
     width: 60%;
     height: 90%;
     margin: auto;
 }
+
+
+.costumeGalery{
+    display: flex;
+    flex-wrap: wrap;
+    width: 120vw;
+    
+}
 .successImg{
-    width: 25%;
-    height: 25%;
+    width: 25vh;
+    /* height: 25vh; */
 }
 /* ---------------------------------------- */
 .navBtn{

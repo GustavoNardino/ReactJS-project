@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react';
+import { useState } from 'react';
 import {CostumerClass, ProductClass} from '../../Data'
 import Galery from '../PageParts/Galery'
 import Button from '../Interactive/Button';
@@ -10,9 +10,12 @@ type productPanelData = {
   costumerData: CostumerClass
   productData: ProductClass
 }
+
 let btnText:string = 'Calcular'
+
 function ProductPanel(props: productPanelData) {
   const [shippingCalc, setShippingCalc] = useState(false)
+
   function handleCep (e: CostumerClass) {
     props.costumerData.cep = e.cep
     props.costumerEvent(props.costumerData)
@@ -26,32 +29,29 @@ function ProductPanel(props: productPanelData) {
   const handleShipping = (e: CostumerClass) => {
     props.costumerData.shipping = e.shipping
     props.costumerEvent(props.costumerData)
-    
   };
   
   return (
     <div className='contentPanel'>
-      <Galery />
-    <div className='infoBoard'>
-      <h4>{props.productData.productName}</h4>
-      <p>{props.productData.description}</p>
-      <p>R$ {props.productData.price}</p>
-      {shippingCalc?
-        <>
-          <DeliveryRadio costumerData={props.costumerData} productData={props.productData} costumerEvent={handleShipping} />
-          <p>{props.costumerData.street}, {props.costumerData.district} - {props.costumerData.city}</p>
-        </>
-      :''}
-      <div>
-        <Input 
-          fieldName='CEP (só os números)'
-          content={props.costumerData.cep}
-          name='cep'
-          costumerData={props.costumerData} 
-          costumerEvent={handleCep} />
+      <Galery carousel={true} />
+      <div className='infoBoard'>
+        <h4>{props.productData.productName}</h4>
+        <p>{props.productData.description}</p>
+        <p>R$ {props.productData.price}</p>
+        {shippingCalc?<>
+            <DeliveryRadio costumerData={props.costumerData} productData={props.productData} costumerEvent={handleShipping} />
+            <p>{props.costumerData.street}, {props.costumerData.district} - {props.costumerData.city}</p>
+          </>:''}
+        <div>
+          <Input 
+            name='cep'
+            fieldName='CEP (só os números)'
+            content={props.costumerData.cep}
+            costumerData={props.costumerData} 
+            costumerEvent={handleCep} />
+        </div>
+          <Button text={btnText} name='comprar' disabled={!shippingCalc} />
       </div>
-        <Button text={btnText} name='comprar' disabled={!shippingCalc} />
-    </div>
     </div>
   )
 }
