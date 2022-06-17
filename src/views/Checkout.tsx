@@ -7,6 +7,7 @@ type checkoutType = {
   costumerEvent: React.Dispatch<React.SetStateAction<CostumerClass>>
   costumerData: CostumerClass
   productData: ProductClass
+  saleId:number
 }
 
 function Checkout(props:checkoutType) {
@@ -19,6 +20,7 @@ function Checkout(props:checkoutType) {
         costumerData={props.costumerData} 
         costumerEvent={props.costumerEvent} />
       <Footer 
+        saleId={props.saleId}
         productData={props.productData} />
     </div>
   )

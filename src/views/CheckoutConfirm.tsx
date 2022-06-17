@@ -6,6 +6,7 @@ import {CostumerClass, ProductClass} from '../Data'
 type confirmType = {
   costumerData: CostumerClass
   productData: ProductClass
+  saleId:number
 }
 
 function CheckoutConfirm(props:confirmType) {
@@ -17,6 +18,7 @@ function CheckoutConfirm(props:confirmType) {
         productData={props.productData} 
         costumerData={props.costumerData} />
       <Footer 
+        saleId={props.saleId}
         productData={props.productData} />
     </div>
   )

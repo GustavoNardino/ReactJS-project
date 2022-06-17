@@ -1,9 +1,8 @@
 import {useState} from 'react'
-import {CostumerClass, ProductClass} from '../../Data'
+import Galery from '../PageParts/Galery';
 import Button from '../Interactive/Button';
 import Input from '../Interactive/Input';
-import Image1 from '../../images/productImgs/productImg1.png'
-import Galery from '../PageParts/Galery';
+import {CostumerClass, ProductClass} from '../../Data'
 
 type costumerPanelData = {
   costumerEvent: React.Dispatch<React.SetStateAction<CostumerClass>>
@@ -12,8 +11,7 @@ type costumerPanelData = {
 }
 
 function CostumerPanel(props:costumerPanelData) {
-  const [allowBtn, setAllowBtn] = useState(false)
-
+  const [allowBtn, setAllowBtn] = useState(props.costumerData.cardCpf?true:false)
   let tempUserData = new CostumerClass();
   function handleFields (e: CostumerClass) {
     tempUserData = e
@@ -27,13 +25,13 @@ function CostumerPanel(props:costumerPanelData) {
   function handleSubmit(){
     props.costumerEvent(tempUserData)
   }
-
+  
   return (
     <div className='contentPanel'>
       <div className='infoBoard'>
         <Galery carousel={false} />
-        <h4>{props.productData.productName}</h4>
-        <p>R$ {props.productData.price + props.costumerData.shipping}</p>      
+        <h3 className='exception'>{props.productData.productName}</h3>
+        <h3 className='exception'>R$ {props.productData.price + props.costumerData.shipping}{props.costumerData.shipping>0?<span>(valor com frete)</span>:'' }</h3>
       </div>
       <div className='infoBoard'>
         <div>
@@ -70,8 +68,8 @@ function CostumerPanel(props:costumerPanelData) {
           costumerData={props.costumerData} costumerEvent={handleFields} />
         <Input fieldName='CPF do portador (só os números)' maxLength={11} content={props.costumerData.cardCpf} name='cardCpf' 
           costumerData={props.costumerData} costumerEvent={handleFields} />
-        <Button text='Continuar' validateEvent={handleSubmit} name='continuar' disabled={!allowBtn} />
         </div>
+        <Button text='Continuar' validateEvent={handleSubmit} name='continuar' disabled={!allowBtn} />
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ type productPresType ={
   costumerEvent: React.Dispatch<React.SetStateAction<CostumerClass>>
   costumerData: CostumerClass
   productData: ProductClass
+  saleId:number
 }
 
 function ProductPresentation(props:productPresType) {
@@ -17,8 +18,9 @@ function ProductPresentation(props:productPresType) {
       <ProductPanel 
         productData={props.productData} 
         costumerData={props.costumerData} 
-        costumerEvent={props.costumerEvent} />
+        costumerEvent={props.costumerEvent}/>
       <Footer 
+      saleId={props.saleId}
         productData={props.productData} />
     </div>
   )

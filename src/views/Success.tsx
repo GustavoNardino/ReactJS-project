@@ -21,6 +21,7 @@ function Success(props: successViewData) {
         productData={props.productData} 
         costumerData={props.costumerData} />
       <Footer 
+        saleId={props.saleId}
         productData={props.productData} />
     </div>
   )

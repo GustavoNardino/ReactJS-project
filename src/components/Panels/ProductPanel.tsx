@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import {CostumerClass, ProductClass} from '../../Data'
 import Galery from '../PageParts/Galery'
+import DeliveryRadio from '../Interactive/DeliveryRadio';
 import Button from '../Interactive/Button';
 import Input from '../Interactive/Input';
-import DeliveryRadio from '../Interactive/DeliveryRadio';
+import {CostumerClass, ProductClass} from '../../Data'
 
 type productPanelData = {
   costumerEvent: React.Dispatch<React.SetStateAction<CostumerClass>>
@@ -14,7 +14,7 @@ type productPanelData = {
 let btnText:string = 'Calcular'
 
 function ProductPanel(props: productPanelData) {
-  const [shippingCalc, setShippingCalc] = useState(false)
+  const [shippingCalc, setShippingCalc] = useState(props.costumerData.cep?true:false)
 
   function handleCep (e: CostumerClass) {
     props.costumerData.cep = e.cep
@@ -33,11 +33,13 @@ function ProductPanel(props: productPanelData) {
   
   return (
     <div className='contentPanel'>
-      <Galery carousel={true} />
       <div className='infoBoard'>
-        <h4>{props.productData.productName}</h4>
+        <Galery carousel={true} />
+      </div>
+      <div className='infoBoard'>
+        <h3>{props.productData.productName}</h3>
         <p>{props.productData.description}</p>
-        <p>R$ {props.productData.price}</p>
+        <h3>R$ {props.productData.price}</h3>
         {shippingCalc?<>
             <DeliveryRadio costumerData={props.costumerData} productData={props.productData} costumerEvent={handleShipping} />
             <p>{props.costumerData.street}, {props.costumerData.district} - {props.costumerData.city}</p>
@@ -47,7 +49,7 @@ function ProductPanel(props: productPanelData) {
             name='cep'
             fieldName='CEP (só os números)'
             content={props.costumerData.cep}
-            costumerData={props.costumerData} 
+            costumerData={props.costumerData}
             costumerEvent={handleCep} />
         </div>
           <Button text={btnText} name='comprar' disabled={!shippingCalc} />

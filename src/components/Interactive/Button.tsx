@@ -1,8 +1,10 @@
 import {useLocation, useNavigate} from 'react-router-dom'
+
 type ButtonProps ={
   text: string;
   name:  string
   disabled:boolean
+  goBack?:boolean
   saleEvent?: () => void
   validateEvent?: () => void
 }
@@ -17,31 +19,28 @@ function Button(props: ButtonProps) {
   ]
   let navigate = useNavigate();
   const nextPage = () => {
-
     switch (currentView) {
       case listPages[0]:
         navigate(listPages[1])
         break
       case listPages[1]:
-        // props.validateEvent 
         navigate(listPages[2])
         break
       case listPages[2]:
-        navigate(listPages[3])
+        props.goBack? navigate(listPages[1]) : navigate(listPages[3])
         break
       case listPages[3]:
         navigate(listPages[0])
         window.location.reload()
         break
       default:
-          return '#'
+        return '#'
     }
   };
   
   return (
       <button 
         disabled={props.disabled}
-        type="button" 
         name={props.name} 
         onClick={nextPage} 
         className='buttonComp'>

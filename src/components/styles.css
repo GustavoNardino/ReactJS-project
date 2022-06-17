@@ -1,20 +1,36 @@
 *{
-    /* border: 1px solid; */
+    /* border: 1px solid black; */
     text-decoration: none;
     transition: 0.3s;
     list-style: none;
     color: #3a3b40;
-    
+    --board-size: 50vw;
+}
+h4, p{
+    margin: 0.8rem 0 0.8rem 0;
+}
+hr{
+    margin: 1rem 0.5rem 1rem 0.5rem;
+}
+.exception{
+    text-align: center;
 }
 @media (max-width: 654px){
+    .infoBoard, .successBoard{
+        --board-size: 90vw;
+        text-align: center;
+    }
+}
+@media (max-width: 890px){
     .contentPanel{
         flex-wrap: wrap;
         flex-direction: column-reverse;
     }
+    .infoBoard, .successBoard{
+        --board-size: 80vw;
+    }
 }
-h4{
-    text-decoration: underline;
-}
+/* ============ DIVS =============== */
 .container {
     box-shadow: 1px 1px #aaaaaa;
     background-color: #dfe1e4;
@@ -26,14 +42,13 @@ h4{
     margin: auto;
     border-radius: 0.3rem;
 }
-
 .contentPanel, .header, .footer{
     box-shadow: 1px 1px #aaaaaa;
     border-radius: 0.3rem;
     background-color: #f4f4f5;
     width: 97%;
     display: flex;
-    margin: 0.3rem;
+    margin: 0.2rem;
     justify-content: space-around;
     align-items: center;
 }
@@ -44,6 +59,13 @@ h4{
     background-color: #dfe1e4;
     box-shadow: none;
 }
+.infoBoard, .successBoard{
+    width: var(--board-size);
+}
+.successBoard{
+    text-align: center;
+}
+/* ========= BUTTON ========= */
 .buttonComp{
     cursor: pointer;
     border: none;
@@ -53,34 +75,27 @@ h4{
     border-radius: 0.2rem;
     background-color: #3a3b40;
     color: white;
-    margin: 3px;
+    margin: 0.2rem;
 }
 .buttonComp:hover{
     opacity: 80%;
 }   
+/* ========== INPUT ========== */
 input{
     border-radius: 0.5rem;
-    margin: 3px;
-    border: 0.2px transparent #3a3b40;
+    margin: 0.2rem;
+    border:  transparent #3a3b40;
     height: 1.3rem;
 }
 .inputComp{
+    width: 200px;
     background-color: white;
 }
 .inputError{
+    width: 200px;
     background-color: #ffb8b8;
 }
-.infoBoard, .successBoard, .payBoard{
-    width: 70%;
-    height: 100%;
-    margin: 0.3rem;
-    justify-content: center;
-}
-
-.successBoard{
-    text-align: center;
-}
-/* ---------------IMGS---------------- */
+/* =========== IMGS =========== */
 .galery{
     display: flex;
     height: 30%;
@@ -100,36 +115,11 @@ input{
 }
 .productImgSale{
     width: 60%;
-    height: 90%;
+    max-width: 300px;
     margin: auto;
 }
-
-
-.costumeGalery{
-    display: flex;
-    flex-wrap: wrap;
-    width: 120vw;
-    
-}
-.successImg{
-    width: 25vh;
-    /* height: 25vh; */
-}
-/* ---------------------------------------- */
-.navBtn{
-    width: 49.5%;
-    height: 60px;;
-    text-align: center;
-    background-color: #84b8d5;
-    border-radius: 0.3rem;
-    box-shadow: 1px 1px #aaaaaa;
-}
-.navBtn:hover{
-    opacity: 80%;
-}
-
-.progBar{
-    
+/* =========== PROGRESS BAR ============= */
+.progBar{ 
     margin-left: 1.8%;
     width: 96.4%;
     align-self: flex-start;
@@ -138,7 +128,7 @@ input{
 .stageBar{
     opacity: 50%;
     width: 25%;
-    height: 20px;
+    height: 15px;
     cursor: default;
     background-color: #3a403a;
     text-align: center;

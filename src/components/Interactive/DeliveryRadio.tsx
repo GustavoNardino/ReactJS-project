@@ -9,7 +9,7 @@ type DeliveryData = {
 
 let isChecked:string = 'correios'
 function DeliveryRadio(props:DeliveryData) {
-  props.costumerData.shipping = 10.0
+  isChecked==='correios'?props.costumerData.shipping = 10.0:props.costumerData.shipping = 0
   props.costumerEvent(props.costumerData);
   const [radioCheck, setRadioCheck] = useState(isChecked)
     function handleChange(dataRadio:string){
@@ -32,10 +32,9 @@ function DeliveryRadio(props:DeliveryData) {
           name='correios'
           type='radio'
           value='correios'
-          
           onChange={(e) => handleChange(e.target.value)}
           checked={radioCheck === 'correios'}
-          defaultChecked={true}
+          // defaultChecked={true}
           />
         <label htmlFor='correios'>Correios</label>
         <br />
