@@ -4,7 +4,7 @@ import ProductPresentation from './views/ProductPresentation';
 import Checkout from './views/Checkout';
 import CheckoutConfirm from './views/CheckoutConfirm';
 import Success from './views/Success';
-import {CostumerClass, ProductClass} from './Data';
+import {CostumerClass, ProductClass, CostumerContext} from './Data';
 import './components/styles.css';
 
 type salesList = {
@@ -22,6 +22,7 @@ product.price = 179.90
 function App() {  
   const [costumerState, setCostumerState] = useState(new CostumerClass())
   const [sales, setSale] = useState(initialStore)
+
   sales.id = Math.floor(Math.random() * 100);
   function handleSetSale(){
     let newId = Math.floor(Math.random() * 100);
@@ -34,33 +35,33 @@ function App() {
         <Route path='*' element={
                 <><h1>Página inexistente.</h1><Link to="/product">Clique aqui</Link></>} 
                 />
-        <Route path='/product'
-                element={<ProductPresentation
-                costumerData={costumerState}
-                productData={product}
-                costumerEvent={setCostumerState}
-                saleId={sales.id}
-                />} /> 
-        <Route path='/checkout' 
-                element={<Checkout
-                costumerData={costumerState}
-                productData={product}
-                costumerEvent={setCostumerState}
-                saleId={sales.id}
-                />} />
-        <Route path='/confirm' 
-                element={<CheckoutConfirm
-                  costumerData={costumerState}
-                  productData={product}
-                  saleId={sales.id}
-                />} />
-        <Route path='/success' 
-                element={<Success
-                  costumerData={costumerState}
-                  productData={product}
-                  saleId={sales.id}
-                  saleEvent={handleSetSale}
-                />} />
+            <Route path='/product'
+                    element={<ProductPresentation
+                    costumerData={costumerState}
+                    productData={product}
+                    costumerEvent={setCostumerState}
+                    saleId={sales.id}
+                    />} /> 
+            <Route path='/checkout' 
+                    element={<Checkout
+                    costumerData={costumerState}
+                    productData={product}
+                    costumerEvent={setCostumerState}
+                    saleId={sales.id}
+                    />} />
+            <Route path='/confirm' 
+                    element={<CheckoutConfirm
+                      costumerData={costumerState}
+                      productData={product}
+                      saleId={sales.id}
+                    />} />
+            <Route path='/success' 
+                    element={<Success
+                      costumerData={costumerState}
+                      productData={product}
+                      saleId={sales.id}
+                      saleEvent={handleSetSale}
+                    />} />
       </Routes>
     </Router>
   );

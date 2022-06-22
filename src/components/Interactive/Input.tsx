@@ -20,7 +20,9 @@ function Input(props: InputProps) {
 
   function regexTest(f: string){   
     f.length > 0? allowInput = true : allowInput = false
+
   }
+
   function handleReturn(f: string = ''){
     if(!allowInput){ 
       setInputValidate('inputError')
@@ -65,3 +67,19 @@ function Input(props: InputProps) {
 }
 
 export default Input
+
+/*
+Luiz Filipe Kluppel Cunha
+15:19
+onChange={(f)=>setValue(validate(f.target.value))}
+let onlyNumbers = value.replace(/[^0-9]/g, ''');
+Luiz Filipe Kluppel Cunha
+15:20
+let onlyNumbers = value.replace(/[^0-9]/g, ''');
+if(onlyNumbers.length === 0) {
+return '0';
+}
+switch(props.validationType){
+
+}
+*/

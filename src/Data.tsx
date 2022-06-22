@@ -1,3 +1,5 @@
+import {createContext} from 'react'
+
 export class CostumerClass{
 	name!: string;
 	phone!: number;
@@ -21,3 +23,5 @@ export class ProductClass{
 	description!: string;
 	price!: number;	
 }
+
+export const CostumerContext = createContext([])
